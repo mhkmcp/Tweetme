@@ -3,7 +3,8 @@
         - Text
         - Image
     - Deleting
-    -Retweeting
+    - Retweeting
+    - Liking 
 
 
 1. Users

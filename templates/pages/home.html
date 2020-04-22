@@ -1,11 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Home</h1>
-<h4>Welcome to Tweetme</h4>
-<div id="tweets">
+<div class="row text-center">
+    <div class="col">
+        <h1>Welcome to Tweetme</h1>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-10 col-md-4 mx-auto">
+        <form class='form py-2' method="POST" action="/create-tweet">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+            <input type="hidden" value='/' name="next">
+            <textarea name="content" placeholder="Your Tweet..." rows="3" cols="40"></textarea>
+            <button type="submit" class="btn btn-sm btn-primary">Tweet</button>
+        </form>
+
+    </div>
+</div>
+
+<div class="row" id="tweets">
     Loading...
 </div>
+
 
 <script>
     const tweetsElement = document.getElementById('tweets')
@@ -30,9 +48,9 @@
     }
 
     function formatTweetElement(tweet) {
-        var formattedTweet = "<div class='mb-4 tweet' id='tweet-" + tweet.id + "'><p>" + tweet.content +
+        var formattedTweet = "<div class='col-12 col-md-10 mx-auto border rounded py-3 mb-4 tweet' id='tweet-" + tweet.id + "'><p>" + tweet.content +
             "</p><div class='btn-group'>" + LikeBtn(tweet) +
-            "</p></div>"
+            "</p></div></div>"
         return formattedTweet
     }
 
