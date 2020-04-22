@@ -3,4 +3,45 @@
 {% block content %}
 <h1>Home</h1>
 <h4>Welcome to Tweetme</h4>
+<div id="tweets">
+    Loading...
+</div>
+
+<script>
+    const tweetsElement = document.getElementById('tweets')
+
+    // var el1 = '<h1>Hi There 1</h1>'
+    // var el2 = '<h1>Hi There 2</h1>'
+
+    // tweetsElement.innerHTML = el1 + el2
+
+
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = '/tweets'
+    const responseType = "json"
+
+    function formatTweetElement(tweet) {
+        var formattedTweet = "<div class='mb-4'><h3>" + tweet.id + "</h3>" + "<p>" + tweet.content + "</p></div>"
+        return formattedTweet
+    }
+
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function () {
+        const serverResponse = xhr.response
+        const listedItems = serverResponse.response
+        var finalTweetStr = ""
+        var i;
+        for (i = 0; i < listedItems.length; i++) {
+            var tweetObj = listedItems[i]
+            var currentItem = formatTweetElement(tweetObj)
+            finalTweetStr += currentItem
+        }
+        tweetsElement.innerHTML = finalTweetStr
+    }
+    xhr.send()
+
+</script>
+
 {% endblock %}
