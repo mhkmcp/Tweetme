@@ -4,7 +4,9 @@
         - Image
     - Deleting
     - Retweeting
-    - Liking 
+        - Read Only Serializer
+        - Create Only Serializer
+    - Liking or Unliking
 
 
 1. Users
