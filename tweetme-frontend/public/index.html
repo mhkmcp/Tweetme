@@ -30,9 +30,32 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="tweetme" data-username="Humayun" data-can-create="true"></div>
+
+  <!-- <div id='tweet-container'></div>
+    <div id="tweetme-2" data-username="cfe" data-can-tweet="false"></div> -->
+
+  <div id="tweet-container"></div>
+
+  <div id="tweetme" data-tweet-id="61" data-class-name="col-6 mx-auto"></div>
+
+  <!-- <div class="d-none" id="tweetme" data-username="admin123" data-can-create="true"></div> -->
 
 
+  <script>
+
+    var path = window.location.pathname
+    var idRegex = /(?<tweetid>\d+)/
+    var match = path.match(idRegex)
+    if (match) {
+      var tweetId = match.groups.tweetid
+      var tweeme2El = document.getElementById("tweetme")
+      tweeme2El.className = 'd-none'
+      var tweetEl = "<div class='tweetme-detail' data-tweet-id=" + tweetId + " data-class-name='col-6 mx-auto'></div>"
+      var mainContainer = document.getElementById("tweet-container")
+      mainContainer.innerHTML = tweetEl
+    }
+
+  </script>
 </body>
 
 </html>

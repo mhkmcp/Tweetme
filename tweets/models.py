@@ -28,7 +28,7 @@ class Tweet(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return str(self.content)
+        return str(self.content) + ' ' + str(self.id)
 
     @property
     def is_retweet(self):

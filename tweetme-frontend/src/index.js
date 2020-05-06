@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { TweetsComponent } from './tweets/components'
+import { TweetsComponent, TweetDetailComponent } from './tweets/components'
 
 const appEl = document.getElementById('root')
 if (appEl) {
@@ -19,5 +19,11 @@ if (tweetEl) {
   ReactDOM.render(e(TweetsComponent, tweetEl.dataset), tweetEl)
 }
 
+const tweetDetailElement = document.querySelectorAll(".tweetme-detail")
+
+tweetDetailElement.forEach(container => {
+  ReactDOM.render(e(TweetDetailComponent, container.dataset),
+    container)
+})
 
 serviceWorker.unregister();
