@@ -39,6 +39,9 @@ def tweet_create_view(request, *args, **kwargs):
 @api_view(['GET'])
 def tweet_list_view(request, *args, **kwargs):
     qs = Tweet.objects.all()
+    username = request.GET.get('username')  # ?username=Humayun
+    if username != None:
+        qs = qs.filter(user__username__iexact=username)
     serializer = TweetSerializer(qs, many=True)
     return Response(serializer.data, status=200)
 
@@ -71,6 +74,7 @@ def tweet_delete_view(request, tweet_id, *args, **kwargs):
 @permission_classes([IsAuthenticated])
 def tweet_action_view(request, *args, **kwargs):
     '''
+    id
     Action options are: Like, Unlike, Retweet
     '''
     print(request.POST, request.data)

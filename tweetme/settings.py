@@ -2,6 +2,9 @@
 admin123
 admin123@gmail.com
 admin@123
+
+Humayun
+tweet@hk
 """
 
 import os
