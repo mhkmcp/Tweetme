@@ -1,13 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row text-center">
-    <div class="col">
-        <h1>Welcome to Tweetme</h1>
-    </div>
-</div>
 
-<div class="row mb-3">
+
+<div class="row mb-3 d-none">
     <div class="col-10 col-md-4 mx-auto">
         <form class='form py-2' id="tweet-create-form" method="POST" action="/create-tweet">
             {% csrf_token %}
@@ -17,13 +13,25 @@
             </div>
             <input type="hidden" value='/' name="next">
             <textarea name="content" placeholder="Your Tweet..." rows="3" cols="40" required></textarea>
-            <button type="submit" class="btn btn-sm btn-primary">Tweet</button>
+            <button type="submit" class="btn btn-sm btn-outline-primary">Tweet</button>
         </form>
 
     </div>
 </div>
 
-<div class="row" id="tweets">
+<!-- <h2>TweeeeetMe</h2> -->
+<div class="row" id="tweetme">
+    Reading...
+</div>
+
+<div class="row text-center d-none">
+    <div class="col">
+        <h1>Welcome to Tweetme</h1>
+    </div>
+</div>
+
+
+<div class="row d-none" id="tweets">
     Loading...
 </div>
 
@@ -45,8 +53,6 @@
         }
         return cookieValue;
     }
-
-
 
     function handleTweetFormError(msg, display) {
         var myErrorDiv = document.getElementById('tweet-create-form-error')
