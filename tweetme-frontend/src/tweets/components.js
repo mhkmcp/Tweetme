@@ -30,12 +30,11 @@ export function TweetDetailComponent(props) {
         if (status === 200) {
             setTweet(response)
         } else {
-            alert("There was an error finding your tweet.")
+            alert("tweets/components: Not finding required tweet")
         }
     }
     useEffect(() => {
         if (didLookup === false) {
-
             apiTweetDetail(tweetId, handleBackendLookup)
             setDidLookup(true)
         }

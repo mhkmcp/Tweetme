@@ -38,11 +38,6 @@ export function Tweet(props) {
         }
     }
 
-    // const handleLink = (event) => {
-    //     event.preventDefault()
-    //     window.location.href = `/${tweet.id}`
-    // }
-
     return <div className={className}>
         <div>
             <p>{tweet.id} - {tweet.content}</p>

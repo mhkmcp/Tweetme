@@ -15,7 +15,7 @@ const e = React.createElement
 const tweetEl = document.getElementById('tweetme')
 
 if (tweetEl) {
-  console.log(tweetEl.dataset)
+  // console.log(tweetEl.dataset)
   ReactDOM.render(e(TweetsComponent, tweetEl.dataset), tweetEl)
 }
 
@@ -25,5 +25,6 @@ tweetDetailElement.forEach(container => {
   ReactDOM.render(e(TweetDetailComponent, container.dataset),
     container)
 })
+
 
 serviceWorker.unregister();
