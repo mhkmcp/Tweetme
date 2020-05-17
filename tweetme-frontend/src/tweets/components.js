@@ -9,6 +9,7 @@ import { TweetList } from './list'
 export function TweetsComponent(props) {
     const [newTweets, setNewTweets] = useState([])
     const canTweet = props.canTweet === "false" ? false : true
+
     const handleNewTweet = (newTweet) => {
         let tempNewTweets = [...newTweets]
         tempNewTweets.unshift(newTweet)

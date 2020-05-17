@@ -5,6 +5,7 @@ import { apiTweetCreate } from './lookup'
 export function TweetCreate(props) {
     const textAreaRef = React.createRef()
     const { didTweet } = props
+
     const handleBackendUpdate = (response, status) => {
         if (status === 201) {
             didTweet(response)
@@ -17,6 +18,7 @@ export function TweetCreate(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
         const newVal = textAreaRef.current.value
+        console.log(newVal)
         // backend api request
         apiTweetCreate(newVal, handleBackendUpdate)
         textAreaRef.current.value = ''

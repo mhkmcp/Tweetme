@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # internal
+    'accounts.apps.AccountsConfig',
     'tweets.apps.TweetsConfig',
 ]
 
@@ -154,3 +155,5 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': DEFAULT_AUTHENTICATION_CLASSES,
     'DEFAULT_RENDERER_CLASSES': DEFAULT_RENDERER_CLASSES
 }
+
+# APPEND_SLASH = False
