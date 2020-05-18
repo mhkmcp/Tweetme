@@ -5,6 +5,12 @@ admin@123
 
 Humayun
 tweet@hk
+
+this_one
+cse_pust
+
+edit
+hunkypunky
 """
 
 import os
@@ -44,6 +50,7 @@ INSTALLED_APPS = [
 
     # internal
     'accounts.apps.AccountsConfig',
+    'profiles.apps.ProfilesConfig',
     'tweets.apps.TweetsConfig',
 ]
 
